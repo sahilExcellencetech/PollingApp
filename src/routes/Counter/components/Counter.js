@@ -8,9 +8,7 @@ export const Counter = ({ counter, increment, doubleAsync }) => (
       Increment
     </button>
     {' '}
-    <button className='btn btn-secondary' onClick={doubleAsync}>
-      Double (Async)
-    </button>
+
   </div>
 )
 Counter.propTypes = {
