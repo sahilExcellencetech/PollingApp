@@ -3,7 +3,7 @@ import {Route, browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 import HomeView from '../routes/Home/components/HomeView'
-
+import Login from '../routes/Login/components/Login'
 
 class App extends React.Component {
   static propTypes = {
@@ -21,6 +21,7 @@ class App extends React.Component {
         <div style={{ height: '100%' }}>
           <Router history={browserHistory} children={this.props.routes} >
           <Route path="/" component={HomeView} />
+          <Route path="/Login" component={Login} />
           </Router>
         </div>
       </Provider>
