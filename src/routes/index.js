@@ -1,36 +1,36 @@
-// We only need to import the modules necessary for initial render
-import CoreLayout from '../layouts/PageLayout/PageLayout'
-import Home from './Home'
-import CounterRoute from './Counter'
-/*  Note: Instead of using JSX, we recommend using react-router
-    PlainRoute objects to build route definitions.   */
+import React from 'react'
+import {Route, browserHistory, Router } from 'react-router'
+import { Provider } from 'react-redux'
+import PropTypes from 'prop-types'
+import HomeView from '../modules/Home/components/HomeView'
+import Login from '../modules/Login/components/Login'
+import Signup from '../modules/Signup/components/Signup'
+import UserList from '../modules/UserList/component/UserList'
 
-export const createRoutes = (store) => ({
-  path        : '/',
-  component   : CoreLayout,
-  indexRoute  : Home,
-  childRoutes : [
-    CounterRoute(store)
-  ]
-})
+class App extends React.Component {
+  static propTypes = {
+    store: PropTypes.object.isRequired,
+    routes: PropTypes.object.isRequired,
+  }
 
+  shouldComponentUpdate () {
+    return false
+  }
 
-/*  Note: childRoutes can be chunked or otherwise loaded programmatically
-    using getChildRoutes with the following signature:
+  render () {
+    return (
+      <Provider store={this.props.store}>
+        <div style={{ height: '100%' }}>
+          <Router history={browserHistory} children={this.props.routes} >
+          <Route path="/" component={HomeView} />
+          <Route path="/Login" component={Login} />
+          <Route path="/Signup" component={Signup} />
+          <Route path="/Userlist" component={UserList} />
+          </Router>
+        </div>
+      </Provider>
+    )
+  }
+}
 
-    getChildRoutes (location, cb) {
-      require.ensure([], (require) => {
-        cb(null, [
-          // Remove imports!
-          require('./Counter').default(store)
-        ])
-      })
-    }
-
-    However, this is not necessary for code-splitting! It simply provides
-    an API for async route definitions. Your code splitting should occur
-    inside the route `getComponent` function, since it is only invoked
-    when the route exists and matches.
-*/
-
-export default createRoutes
+export default App
