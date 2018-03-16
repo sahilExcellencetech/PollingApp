@@ -2,9 +2,6 @@
   import { IndexLink, Link } from 'react-router'
   import PropTypes from 'prop-types'
   import RaisedButton from 'material-ui/RaisedButton';
-  import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-  import getMuiTheme from 'material-ui/styles/getMuiTheme';
-  import darkBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
   import TextField from 'material-ui/TextField';
   import Snackbar from 'material-ui/Snackbar';
   import './Signup.scss'
@@ -80,7 +77,6 @@
         <div>
           <Head heading="Sign Up"/>
           <div className='container text-center'>
-            <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
               <div id="container">
                   <form onSubmit={(e)=> this.onFormClick(e)}>
                     <TextField style = {{width: ''}} type="text" value={this.state.username} onChange={this.handleUsernameChange} hintText="Username" required/><br />
@@ -94,7 +90,6 @@
                     <Snackbar open={this.state.open} message={this.state.alert} autoHideDuration={4000} onRequestClose={this.handleRequestClose}/>
                   </form>
                 </div>
-              </MuiThemeProvider>
             </div>
         </div>
       );

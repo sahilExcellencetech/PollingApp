@@ -3,9 +3,7 @@ import style from './UserList.scss'
 import Header from '../../../components/header/header'
 import  CONFIG  from '../../../config/';
 import {  Table,TableBody,TableHeader,TableHeaderColumn,TableRow,TableRowColumn} from 'material-ui/Table';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+
 
 
 export default class UserList extends React.Component{
@@ -34,7 +32,6 @@ export default class UserList extends React.Component{
         <Header heading="User List" />
         <div className='container text-center'>
           <div id="container">
-  <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Table>
    <TableHeader>
      <TableRow>
@@ -53,7 +50,6 @@ export default class UserList extends React.Component{
    }
    </TableBody>
  </Table>
-  </MuiThemeProvider>
 
 
           </div>

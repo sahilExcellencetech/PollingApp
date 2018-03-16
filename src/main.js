@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import './styles/main.scss'
 import styles from "material-ui/";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 // Store Initialization
 // ------------------------------------
@@ -16,8 +19,9 @@ let render = () => {
   const App = require('./routes/index').default
   const routes = require('./rou/index').default(store)
 
-  ReactDOM.render(
-    <App store={store} routes={routes} />,
+  ReactDOM.render(<MuiThemeProvider>
+    <App store={store} routes={routes} />
+  </MuiThemeProvider>  ,
     MOUNT_NODE
   )
 }

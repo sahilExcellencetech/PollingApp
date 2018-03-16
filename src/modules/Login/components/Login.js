@@ -3,9 +3,6 @@ import { IndexLink, Link } from 'react-router'
 import PropTypes from 'prop-types'
   import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import TextField from 'material-ui/TextField';
 import './Login.scss'
 import Head from '../../../components/header/head'
@@ -69,7 +66,6 @@ handlePasswordChange = (e) => {
       <div>
         <Head heading="Login" />
         <div className='container text-center'>
-          <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
             <div id="container">
                 <form onSubmit={(e) => this.onFormSubmit(e)} >
                   <TextField style = {{width: ''}} value={this.state.username} onChange={this.handleUsernameChange} type="text" hintText="Username" required/><br />
@@ -78,7 +74,6 @@ handlePasswordChange = (e) => {
                   <Snackbar open={this.state.open} message={this.state.alert} autoHideDuration={4000} onRequestClose={this.handleRequestClose}/>
                 </form>
               </div>
-            </MuiThemeProvider>
           </div>
       </div>
     )
