@@ -6,6 +6,7 @@ import HomeView from '../modules/Home/components/HomeView'
 import Login from '../modules/Login/components/Login'
 import Signup from '../modules/Signup/components/Signup'
 import UserList from '../modules/UserList/component/UserList'
+import PollsList from '../modules/PollsList/components/PollsList'
 
 class App extends React.Component {
   static propTypes = {
@@ -26,6 +27,7 @@ class App extends React.Component {
           <Route path="/Login" component={Login} />
           <Route path="/Signup" component={Signup} />
           <Route path="/Userlist" component={UserList} />
+          <Route path="/Pollslist" component={PollsList} />
           </Router>
         </div>
       </Provider>

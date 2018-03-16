@@ -1,12 +1,12 @@
 import React from 'react';
-import style from './UserList.scss'
+import style from './PollsList.scss'
 import Header from '../../../components/header/header'
 import  CONFIG  from '../../../config/';
 import {  Table,TableBody,TableHeader,TableHeaderColumn,TableRow,TableRowColumn} from 'material-ui/Table';
 
 
 
-export default class UserList extends React.Component{
+export default class PollsList extends React.Component{
   constructor(){
     super();
     this.state={
@@ -14,7 +14,7 @@ export default class UserList extends React.Component{
     }
   }
   componentDidMount(){
-    fetch(`${CONFIG.BASE_URL}list_users`).
+    fetch(`${CONFIG.BASE_URL}list_polls`).
     then((Response)=>Response.json()).
     then((findresponse)=>
     {
@@ -25,26 +25,25 @@ export default class UserList extends React.Component{
   }
 
   render(){
+    console.log(this.state.data);
 
 
     return(
       <div>
-        <Header heading="User List" />
+        <Header heading="Polls List" />
         <div className='container text-center'>
           <div id="container">
           <Table>
    <TableHeader>
      <TableRow>
-       <TableHeaderColumn>Username</TableHeaderColumn>
-       <TableHeaderColumn>Role</TableHeaderColumn>
+       <TableHeaderColumn>Title</TableHeaderColumn>
      </TableRow>
    </TableHeader>
    <TableBody>
    {
      this.state.data.map((dynamicData,key) =>
      <TableRow>
-       <TableRowColumn>{dynamicData.username}</TableRowColumn>
-       <TableRowColumn>{dynamicData.role}</TableRowColumn>
+       <TableRowColumn>{dynamicData.title}</TableRowColumn>
      </TableRow>
    )
    }
