@@ -12,7 +12,7 @@
   import MenuItem from 'material-ui/MenuItem';
   import { connect } from 'react-redux';
   import * as action from '../../../redux/signUp/action';
-  import Header from '../../../components/header/header'
+  import Head from '../../../components/header/head'
 
   const style = {
     margin: 12,
@@ -78,7 +78,7 @@
     render() {
       return (
         <div>
-          <Header heading="Sign Up"/>
+          <Head heading="Sign Up"/>
           <div className='container text-center'>
             <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
               <div id="container">

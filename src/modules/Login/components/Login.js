@@ -8,7 +8,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import TextField from 'material-ui/TextField';
 import './Login.scss'
-import Header from '../../../components/header/header'
+import Head from '../../../components/header/head'
 import { connect } from 'react-redux';
 import * as action from '../../../redux/login/action';
 
@@ -67,7 +67,7 @@ handlePasswordChange = (e) => {
   render(){
     return(
       <div>
-        <Header heading="Login" />
+        <Head heading="Login" />
         <div className='container text-center'>
           <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
             <div id="container">
