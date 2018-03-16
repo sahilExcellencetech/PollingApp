@@ -69,7 +69,6 @@ handlePasswordChange = (e) => {
         <div className='container text-center'>
           <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
             <div id="container">
-              <h2>Sign Up</h2>
                 <form onSubmit={(e)=> this.onFormClick(e)}>
                   <TextField style = {{width: ''}} type="text" value={this.state.username} onChange={this.handleUsernameChange} hintText="Username" required/><br />
                   <TextField style = {{width: ''}} type="password" value={this.state.password} onChange={this.handlePasswordChange} hintText="Password" required/><br />

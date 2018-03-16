@@ -9,7 +9,6 @@ export default class UserList extends React.Component{
         <Header heading="User List" />
         <div className='container text-center'>
           <div id="container">
-            <h2>User List</h2>
           </div>
         </div>
       </div>
