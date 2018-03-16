@@ -21,7 +21,7 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 2,
+      value: "staff",
       username: "",
       password: ""
     };
@@ -38,10 +38,19 @@ class Signup extends React.Component {
     console.log(props, this.props, '==============');
     console.log("Username: " + this.state.username);
     console.log("Password: " + this.state.password);
+    console.log("Option: " + this.state.value);
   }
   onFormClick(e){
     e.preventDefault();
-    this.props.onSignUp("sign");
+
+    var details = {
+      'username' : this.state.username,
+      'password' : this.state.password,
+      'option' : this.state.value
+    }
+
+    this.props.onSignUp(details);
+
   }
   handleUsernameChange = (e) => {
    this.setState({username: e.target.value});
@@ -49,6 +58,7 @@ class Signup extends React.Component {
 handlePasswordChange = (e) => {
    this.setState({password: e.target.value});
 }
+
 
   handleChange = (event, index, value) => this.setState({value});
 
@@ -64,12 +74,11 @@ handlePasswordChange = (e) => {
                   <TextField style = {{width: ''}} type="text" value={this.state.username} onChange={this.handleUsernameChange} hintText="Username" required/><br />
                   <TextField style = {{width: ''}} type="password" value={this.state.password} onChange={this.handlePasswordChange} hintText="Password" required/><br />
                   <DropDownMenu value={this.state.value} onChange={this.handleChange} >
-                    <MenuItem value={1} primaryText="Admin" />
-                    <MenuItem value={2} primaryText="Staff" />
+                    <MenuItem value="admin" primaryText="Admin" />
+                    <MenuItem value="staff" primaryText="Staff" />
                   </DropDownMenu>
                   <br />
                   <RaisedButton label="Sign Up" primary={true} type="submit"  style={style} />
-
                 </form>
               </div>
             </MuiThemeProvider>

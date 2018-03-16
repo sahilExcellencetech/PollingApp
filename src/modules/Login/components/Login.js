@@ -37,7 +37,11 @@ export class Login extends React.Component{
   }
   onFormSubmit(e){
     e.preventDefault();
-    this.props.onLogin("login")
+    var details = {
+      'username': this.state.username,
+      'password': this.state.password,
+    }
+    this.props.onLogin(details)
   }
   handleUsernameChange = (e) => {
    this.setState({username: e.target.value});

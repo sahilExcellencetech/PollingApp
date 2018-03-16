@@ -1,20 +1,7 @@
 import 'whatwg-fetch';
-import Login from '/home/excellencetech/PollingApp/src/modules/Login/components/Login.js'
 
-
-
-// export const logiNapi=()=>{
-//    axios.get('https://secure-refuge-14993.herokuapp.com/login?username=admin&password=admin')
-//  .then( (response)=> {
-//    console.log(response);
-//  })
-//  .catch(function (error) {
-//    console.log(error);
-//  });
-// }
-
-export const loginApi = () => {
- return fetch('https://secure-refuge-14993.herokuapp.com/login?username=lol&password=lol').then((response) => {
+export const loginApi = (details) => {
+ return fetch(`https://secure-refuge-14993.herokuapp.com/login?username=${details.username}&password=${details.password}`).then((response) => {
    if (response.status === 500) {
      return new Promise((resolve, reject) => {
        response.json().then((data) => {

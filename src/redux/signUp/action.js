@@ -2,13 +2,13 @@ import * as fireAction from '../../services/SignupServices'
 import * as constants from "../constants";
 import * as actions from "../action";
 
-function signUp(){
-   return fireAction.signUpApi();
+function signUp(details){
+   return fireAction.signUpApi(details);
 }
 
-export function requestSignUp (data) {
+export function requestSignUp (details) {
    return function(dispatch){
-       signUp().then((res) => {
+       signUp(details).then((res) => {
             dispatch(actions.successSignUp(res));
        });
    }
