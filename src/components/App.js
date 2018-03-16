@@ -2,8 +2,9 @@ import React from 'react'
 import {Route, browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
-import HomeView from '../routes/Home/components/HomeView'
-import Login from '../routes/Login/components/Login'
+import HomeView from '../modules/Home/components/HomeView'
+import Login from '../modules/Login/components/Login'
+import Signup from '../modules/Signup/components/Signup'
 
 class App extends React.Component {
   static propTypes = {
@@ -22,6 +23,7 @@ class App extends React.Component {
           <Router history={browserHistory} children={this.props.routes} >
           <Route path="/" component={HomeView} />
           <Route path="/Login" component={Login} />
+          <Route path="/Signup" component={Signup} />
           </Router>
         </div>
       </Provider>

@@ -17,7 +17,7 @@ export const HomeView = () => (
   <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
   <div id="container">
     <h2>Polling System</h2>
-    <RaisedButton label="Sign Up" primary={true} style={style}  />
+    <Link to='/Signup'><RaisedButton label="Sign Up" primary={true} style={style}  /></Link>
     <Link to='/Login'><RaisedButton label="Login" primary={true} style={style}  /></Link>
   </div>
   </MuiThemeProvider>

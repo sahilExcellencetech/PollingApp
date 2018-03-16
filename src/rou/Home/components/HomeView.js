@@ -6,27 +6,22 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import TextField from 'material-ui/TextField';
-import './Login.scss'
-import Header from './Header'
+import './HomeView.scss'
 
 const style = {
   margin: 12,
 };
 
-export const Login = ({ children }) => (
-  <div>
-  <Header />
+export const HomeView = () => (
   <div className='container text-center'>
   <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
   <div id="container">
-  <h2>Login</h2>
-  <TextField style = {{width: ''}} type="text" hintText="Username" errorText="This field is required"/><br />
-  <TextField style = {{width: ''}} type="password" hintText="Password" errorText="This field is required"/><br />
-  <RaisedButton label="Login" primary={true} style={style} />
+    <h2>Polling System</h2>
+    <Link to='/Signup'><RaisedButton label="Sign Up" primary={true} style={style}  /></Link>
+    <Link to='/Login'><RaisedButton label="Login" primary={true} style={style}  /></Link>
   </div>
   </MuiThemeProvider>
   </div>
-  </div>
 )
 
-export default Login
+export default HomeView
