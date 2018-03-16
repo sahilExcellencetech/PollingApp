@@ -1,7 +1,9 @@
 import 'whatwg-fetch';
+import  CONFIG  from '../config/';
+
 
 export const signUpApi = (details) => {
- return fetch(`https://secure-refuge-14993.herokuapp.com/add_user?username=${details.username}&password=${details.password}&role=${details.option}`).then((response) => {
+ return fetch(`${CONFIG.BASE_URL}add_user?username=${details.username}&password=${details.password}&role=${details.option}`).then((response) => {
    if (response.status === 500) {
      return new Promise((resolve, reject) => {
        response.json().then((data) => {

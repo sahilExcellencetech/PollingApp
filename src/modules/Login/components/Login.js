@@ -1,6 +1,7 @@
 import React from 'react'
 import { IndexLink, Link } from 'react-router'
 import PropTypes from 'prop-types'
+  import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -20,16 +21,29 @@ export class Login extends React.Component{
     super();
     this.state = {
       username:'',
-      password:''
+      password:'',
+      open: false,
+      alert:""
   };
 }
+handleRequestClose = () => {
+  this.setState({
+    open: false,
+  });
+};
   componentWillReceiveProps(props){
     if(props.login.error === 0){
-      this.props.router.push('/UserList');
-      alert("Logged in Successfully");
+      this.setState({
+         open: true,
+         alert:"Login Successfull"}, setTimeout(() => {
+           this.props.router.push('/UserList');
+         },2000));
     }
-    else{
-      alert("Log in Unsuccessfull");
+    else {
+      this.setState({
+        open: true,
+        alert:"Login Unsuccessfull",
+      });
     }
     console.log(props, this.props,"=============");
     console.log("Username: " + this.state.username);
@@ -37,7 +51,7 @@ export class Login extends React.Component{
   }
   onFormSubmit(e){
     e.preventDefault();
-    var details = {
+    let details = {
       'username': this.state.username,
       'password': this.state.password,
     }
@@ -61,6 +75,7 @@ handlePasswordChange = (e) => {
                   <TextField style = {{width: ''}} value={this.state.username} onChange={this.handleUsernameChange} type="text" hintText="Username" required/><br />
                   <TextField style = {{width: ''}} value={this.state.password} onChange={this.handlePasswordChange} type="password" hintText="Password" required/><br />
                   <RaisedButton label="Login" type="submit" primary={true} style={style} />
+                  <Snackbar open={this.state.open} message={this.state.alert} autoHideDuration={4000} onRequestClose={this.handleRequestClose}/>
                 </form>
               </div>
             </MuiThemeProvider>
