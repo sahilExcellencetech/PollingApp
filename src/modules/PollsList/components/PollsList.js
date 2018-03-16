@@ -43,7 +43,7 @@ export default class PollsList extends React.Component{
    {
      this.state.data.map((dynamicData,key) =>
      <TableRow>
-       <TableRowColumn>{dynamicData.title}</TableRowColumn>
+      <TableRowColumn>{dynamicData.title}</TableRowColumn>
      </TableRow>
    )
    }
