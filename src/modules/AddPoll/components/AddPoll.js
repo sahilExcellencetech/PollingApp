@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import './AddPoll.scss'
-import Head from '../../../components/header/head'
+import Header from '../../../components/header/header'
 import { connect } from 'react-redux';
 import * as action from '../../../redux/addpoll/action';
 
@@ -65,7 +65,7 @@ handleOption4Change = (e) => {
   render(){
     return(
       <div>
-        <Head heading="Add Poll" />
+        <Header heading="Add Poll" />
         <div className='container text-center'>
             <div id="container">
                 <form onSubmit={(e) => this.onFormSubmit(e)} >
